@@ -1,6 +1,21 @@
-import { applyMiddleware, configureStore } from "redux";
+
+import { configureStore } from "@reduxjs/toolkit";
+//DEPRECATED - createStore is replaced by configureStore using @reduxjs/toolkit
+// import { legacy_createStore as createStore, applyMiddleware } from "redux";
+
 import reducers from "./reducers"
 import { thunk } from "redux-thunk";
 
 
-export const store = configureStore(reducers, {}, applyMiddleware(thunk))
+const preLoadedState = {};
+
+//COMMENT BELOW CODE : DEPRECATED - createStore is replaced by configureStore using @reduxjs/toolkit
+// const middleware = applyMiddleware(thunk)
+// const store = createStore(reducers, preLoadedState, middleware)
+
+//UNCOMMENT BELOW CODE
+const middleware = [thunk];
+const store = configureStore({reducer : reducers, preLoadedState, middleware: ()=>middleware});
+
+
+export default store;

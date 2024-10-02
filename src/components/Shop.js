@@ -4,9 +4,9 @@ const Shop = () => {
   return (
     <div>
         <h2>Deposit/Withdraw Money</h2>
-      <buttn className="btn btn-primary">-</buttn>
+      <button className="btn btn-primary">-</button>
         Update Balance
-      <buttn className="btn btn-primary">+</buttn>
+      <button className="btn btn-primary">+</button>
     </div>
   )
 }
