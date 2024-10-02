@@ -6,16 +6,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import reducers from "./reducers"
 import { thunk } from "redux-thunk";
 
-
 const preLoadedState = {};
-
-//COMMENT BELOW CODE : DEPRECATED - createStore is replaced by configureStore using @reduxjs/toolkit
-// const middleware = applyMiddleware(thunk)
-// const store = createStore(reducers, preLoadedState, middleware)
 
 //UNCOMMENT BELOW CODE
 const middleware = [thunk];
 const store = configureStore({reducer : reducers, preLoadedState, middleware: ()=>middleware});
 
+//COMMENT BELOW CODE : DEPRECATED - createStore is replaced by configureStore using @reduxjs/toolkit
+// const middleware = applyMiddleware(thunk)
+// const store = createStore(reducers, preLoadedState, middleware)
 
 export default store;
